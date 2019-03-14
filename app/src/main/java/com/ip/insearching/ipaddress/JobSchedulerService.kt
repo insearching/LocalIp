@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetManager
 import android.content.*
 import android.util.Log
 import android.content.IntentFilter
+import timber.log.Timber
 
 class JobSchedulerService : JobService() {
 
@@ -31,7 +32,7 @@ class JobSchedulerService : JobService() {
 
     class WifiStateReceiver : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-            Log.e("MY_TAG", "WifiStateReceiver Got intent " + intent.action)
+            Timber.i("Received intent %s", intent.action)
             if (intent.action == WIFI_STATE_CHANGED_ACTION ||
                 intent.action == STATE_CHANGED_ACTION) {
                 val appWidgetIds = AppWidgetManager.getInstance(context)

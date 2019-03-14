@@ -10,7 +10,7 @@ import android.widget.RemoteViews
 import android.content.Intent
 import android.app.PendingIntent
 import android.content.ComponentName
-import android.util.Log
+import timber.log.Timber
 
 
 /**
@@ -25,7 +25,7 @@ class IPAppWidgetProvider : AppWidgetProvider() {
     }
 
     override fun onReceive(context: Context, intent: Intent) {
-        Log.e("MY_TAG", "Got intent " + intent.action)
+        Timber.i("Received intent %s", intent.action)
         if (intent.action == WifiManager.SUPPLICANT_CONNECTION_CHANGE_ACTION) {
             val appWidgetManager = AppWidgetManager.getInstance(context)
             val ids = appWidgetManager.getAppWidgetIds(ComponentName(context, IPAppWidgetProvider::class.java))
@@ -58,8 +58,8 @@ class IPAppWidgetProvider : AppWidgetProvider() {
 
         @SuppressWarnings("deprecation")
         private fun getWifiAddress(context: Context): String {
-            val wm = context.applicationContext.getSystemService(WIFI_SERVICE) as WifiManager
-            return Formatter.formatIpAddress(wm.connectionInfo.ipAddress)
+            val wifiManager = context.applicationContext.getSystemService(WIFI_SERVICE) as WifiManager
+            return Formatter.formatIpAddress(wifiManager.connectionInfo.ipAddress)
         }
     }
 }

@@ -8,6 +8,7 @@ import android.app.job.JobScheduler
 import android.content.ComponentName
 import android.content.Context
 import android.util.Log
+import timber.log.Timber
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         val scheduler = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
         val result = scheduler.schedule(jobInfo)
         if (result == JobScheduler.RESULT_SUCCESS) {
-            Log.d("MY_TAG", "Job scheduled successfully!")
+            Timber.i("Job scheduled successfully!")
         }
 
         finish()
