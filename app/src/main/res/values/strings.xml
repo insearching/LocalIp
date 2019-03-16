@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">IPAddress</string>
-    <string name="appwidget_text">IP address</string>
+    <string name="appwidget_text">0.0.0.0</string>
 </resources>

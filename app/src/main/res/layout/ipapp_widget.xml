@@ -8,13 +8,16 @@
             android:id="@+id/appwidget_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/appwidget_text"
+            android:fontFamily="@font/montserat"
             android:text="@string/appwidget_text"
             android:textColor="#ffffff"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_margin="8dp"
-            android:contentDescription="@string/appwidget_text"/>
+            android:textStyle="italic" />
 
 </RelativeLayout>
