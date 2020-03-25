@@ -29,6 +29,7 @@ class IPAppWidgetProvider : AppWidgetProvider() {
 
     override fun onReceive(context: Context, intent: Intent) {
         Timber.i("Received intent %s", intent.action)
+
         if (intent.action == WifiManager.NETWORK_STATE_CHANGED_ACTION) {
             with(AppWidgetManager.getInstance(context)) {
                 onUpdate(context, this, getAppWidgetIds(ComponentName(context, IPAppWidgetProvider::class.java)))
